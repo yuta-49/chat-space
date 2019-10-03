@@ -63,7 +63,4 @@ Things you may want to cover:
 |group_id|integer|null: false, foregun_key: true|
 
 ### Association
-- has_many :groups_users
-- has_many :users, groups_users, through: :groups_users
-
-
+- belongs_to :user
