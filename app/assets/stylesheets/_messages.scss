@@ -1,0 +1,167 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.body__wrapper {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.pagebox {
+  &__flashbox {
+    width: 100vw;
+    background-color: #38AEF0;
+    height: 24px;
+    color: white;
+    text-align: center;
+  }
+}
+
+.leftside__namebox {
+  background-color: #253141;
+  display: flex;
+  padding: 35px 20px;
+  height: 30px;
+  &__name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    flex:1;
+  }
+  &__icon {
+    display: block;
+    &--edit {
+      color: white;
+    }
+  }
+  &__icon {
+    display: block;
+    &--cog {
+      color: white;
+    }
+  }
+}
+  
+.leftside__groupbox {
+  background-color: #2f3e51;
+  height: calc(100vh - 100px); 
+  width: 300px; 
+  overflow: auto;
+  &__userbox {
+    padding: 20px 20px;
+    margin-bottom: 40px;
+    color: white;
+    &__name {    
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    &__message {
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.rightside {
+  flex:1;
+  max-height: 100vh;
+  flex-direction: column;
+  display: flex;
+  box-sizing: inherit;
+  &__groupbox {
+    display: flex;
+    padding: 0 40px;
+    justify-content: flex-end;
+    height: 100px;
+    border-bottom:1px solid #eee;
+    &__namebox {
+      flex:1;
+      padding-top: 35px;
+      &__name {
+        font-size: 20px;
+        display: block;
+        color: #333333;
+      }
+      &__member {
+        font-size: 12px;
+        color: #999999;
+        display: block;
+
+      }
+    }
+    &__btn {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      color: #38aef0;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: 1px solid #38aef0;
+      text-decoration: none; 
+    }
+  }
+
+  &__chatmain {
+    overflow: auto;
+    flex:1;
+    &__messagebox {
+      padding: 40px 40px 0;
+      &__patial {
+        display: flex;
+        &__name {
+          padding-bottom: 10px;
+          font-size: 16px;
+          font-weight: bold; 
+        }
+        &__date {
+          padding-left: 10px;
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__text {
+        padding-bottom: 40px;
+        display: block;
+        margin-bottom: 40px;
+      }
+    }
+  }  
+
+  &__formbox {
+    padding:20px 40px 20px 50px;
+    background-color:#eee;
+    display: flex;
+    &__textbox {
+      flex:1;
+      display: flex;
+      background-color: #fff;
+      padding: 0 10px;
+      flex-direction: row;
+    
+      &__text{
+        color:#434A54;
+        font-size:16px;
+        flex:1;
+        border-width: 0;
+      }
+      &__icon__image{
+        display: block;
+        color:black;
+        line-height: 50px;
+      }
+    }
+    &__btn {
+      line-height: 40px;
+      padding:0 40px;
+      margin-left:15px;
+      color:#fff;
+      background-color: #38aef0;
+      text-decoration: none; 
+      padding-top: 5px;
+    }
+  }
+}
+
