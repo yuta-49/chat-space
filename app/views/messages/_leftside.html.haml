@@ -1,0 +1,17 @@
+/ ユーザー編集ページに遷移するためのパスを追加
+.pagebox
+  %p.pagebox__flashbox
+    グループを作成しました。
+
+.body__wrapper
+  .leftside
+    .leftside__namebox
+      %p.leftside__namebox__name 
+        momosaki yuuta
+      = link_to "#", class: "leftside__namebox__icon--edit" do
+        =fa_icon 'edit'
+      = link_to "#", class: "leftside__namebox__icon--cog" do
+        =fa_icon 'cog'
+    
+    .leftside__groupbox
+      = render "message"

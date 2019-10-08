@@ -1,22 +1,4 @@
-.pagebox
-  %p.pagebox__flashbox
-    グループを作成しました。
-
-.body__wrapper
-  .leftside
-    .leftside__namebox
-      %p.leftside__namebox__name 
-        = current_user.name
-      = link_to "", class: "leftside__namebox__icon--edit" do
-        =fa_icon 'edit'
-      = link_to edit_user_path(current_user), class: "leftside__namebox__icon--cog" do
-        =fa_icon 'cog'
-    
-    .leftside__groupbox
-      = render "message"
-    
-      
-  .rightside
+ .rightside
     .rightside__groupbox
       .rightside__groupbox__namebox
         %p.rightside__groupbox__namebox__name
@@ -35,4 +17,3 @@
         =link_to "#", class: "rightside__formbox__textbox__icon__image" do
           = fa_icon 'image'
       = link_to "Send", "#", class: "rightside__formbox__btn"
-      
