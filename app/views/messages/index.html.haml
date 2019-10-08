@@ -6,7 +6,7 @@
   .leftside
     .leftside__namebox
       %p.leftside__namebox__name 
-        momosaki yuuta
+        = current_user.name
       = link_to "", class: "leftside__namebox__icon--edit" do
         =fa_icon 'edit'
       = link_to edit_user_path(current_user), class: "leftside__namebox__icon--cog" do
