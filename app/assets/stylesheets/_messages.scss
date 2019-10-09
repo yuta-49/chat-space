@@ -8,16 +8,6 @@
   display: flex;
 }
 
-.pagebox {
-  &__flashbox {
-    width: 100vw;
-    background-color: #38AEF0;
-    height: 24px;
-    color: white;
-    text-align: center;
-  }
-}
-
 .leftside__namebox {
   background-color: #253141;
   display: flex;
@@ -49,13 +39,15 @@
   width: 300px; 
   overflow: auto;
   &__userbox {
+    display:block;
     padding: 20px 20px;
     margin-bottom: 40px;
     color: white;
+    text-decoration:none;
     &__name {    
       font-size: 15px;
       font-weight: bold;
-      margin-bottom: 5px;
+      padding-bottom: 5px;
     }
     &__message {
       font-size: 11px;
