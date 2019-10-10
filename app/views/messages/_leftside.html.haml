@@ -3,17 +3,20 @@
   .leftside__namebox
     %p.leftside__namebox__name 
       = current_user.name
-    = link_to new_group_path, class: "leftside__namebox__icon--edit" do
+    = link_to new_group_path, class:     "leftside__namebox__icon--edit" do
       = fa_icon 'edit'
     = link_to edit_user_path(current_user), class: "leftside__namebox__icon--cog" do
       = fa_icon 'cog'
-    
+  
   .leftside__groupbox
     - current_user.groups.each do |group|
       = link_to group_messages_path(group),{class:"leftside__groupbox__userbox"} do
         .group__name
           = group.name
         .group__message
-          メッセージはまだありません。
-       
+          - if group.messages.any?
+            = group.messages.last(1)[0].content
+          - else
+            = 'メッセージはありません'
+      
     

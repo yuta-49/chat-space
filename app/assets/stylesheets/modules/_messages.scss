@@ -6,60 +6,70 @@
 .body__wrapper {
   box-sizing: border-box;
   display: flex;
+  flex: 1;
 }
 
-.leftside__namebox {
+.leftside {
   background-color: #253141;
+  height: 100vh;
+  width: 300px;
+  flex-direction: column;
+  box-sizing: inherit;
+  color: #fff;
   display: flex;
-  padding: 35px 20px;
-  height: 30px;
-  &__name {
-    font-size: 16px;
+  &__namebox {
+    padding: 35px 20px 31px;
+    display: flex;
     font-weight: bold;
-    color: #FFFFFF;
-    flex:1;
+    line-height: 1,0;
+    height: 35px;
+    &__name {
+      font-size: 16px;
+      flex:1;
+      color: #FFFFFF;
+    }
+    &__icon {
+      &--edit {
+        color: white;
+        display: block;  
+      }
+      &--cog {
+        color: white;
+        display: block;
+      }
+    }
   }
-  &__icon {
-    display: block;
-    &--edit {
+
+  &__groupbox {
+    background-color: #2f3e51;
+    flex: 1;
+    overflow: auto;
+    height: calc(100vh-100px);
+    padding: 0 20px;
+    &__userbox {
+      padding: 20px;
+      text-decoration:none;
       color: white;
-    }
-  }
-  &__icon {
-    display: block;
-    &--cog {
-      color: white;
-    }
-  }
-}
-  
-.leftside__groupbox {
-  background-color: #2f3e51;
-  height: calc(100vh - 100px); 
-  width: 300px; 
-  overflow: auto;
-  &__userbox {
-    display:block;
-    padding: 20px 20px;
-    margin-bottom: 40px;
-    color: white;
-    text-decoration:none;
-    &__name {    
-      font-size: 15px;
-      font-weight: bold;
-      padding-bottom: 5px;
-    }
-    &__message {
-      font-size: 11px;
-      font-weight: bold;
-      margin-bottom: 40px;
+      .group {
+        &__name {    
+          font-size: 15px;
+          font-weight: bold;
+          padding-bottom: 5px;
+        }
+        &__message {
+          margin-bottom: 40px;
+          font-size: 11px;
+          font-weight: bold;
+        }
+      }
     }
   }
 }
 
+  
 .rightside {
   flex:1;
-  max-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   display: flex;
   box-sizing: inherit;
@@ -81,7 +91,7 @@
         font-size: 12px;
         color: #999999;
         display: block;
-
+        margin-top: 15px;
       }
     }
     &__btn {
@@ -122,6 +132,7 @@
     }
   }  
 
+ 
   &__formbox {
     padding:20px 40px 20px 50px;
     background-color:#eee;
@@ -132,28 +143,29 @@
       background-color: #fff;
       padding: 0 10px;
       flex-direction: row;
-    
+      justify-content: flex-start; 
       &__text{
         color:#434A54;
         font-size:16px;
         flex:1;
         border-width: 0;
       }
-      &__icon__image{
+      &__image{
         display: block;
         color:black;
         line-height: 50px;
+        &--hidden {
+          display: none;
+        }
       }
     }
     &__btn {
-      line-height: 40px;
+      line-height: 50px;
       padding:0 40px;
       margin-left:15px;
       color:#fff;
       background-color: #38aef0;
       text-decoration: none; 
-      padding-top: 5px;
     }
   }
 }
-

@@ -1,10 +1,9 @@
-.leftside__groupbox
-  .leftside__groupbox__userbox
-    %p.leftside__groupbox__userbox__name 百崎悠太
-    %p.leftside__groupbox__userbox__message Hello World!
-    %p.leftside__groupbox__userbox__name 百崎悠太
-    %p.leftside__groupbox__userbox__message Hello World!
-    %p.leftside__groupbox__userbox__name 百崎悠太
-    %p.leftside__groupbox__userbox__message Hello World!
-
-
+.rightside__chatmain    
+  .rightside__chatmain__messagebox
+    .rightside__chatmain__messagebox__patial
+      .rightside__chatmain__messagebox__patial__name
+        = message.user.name
+      .rightside__chatmain__messagebox__patial__date
+        = message.created_at.strftime("%Y/%m/%d %H:%M")
+    .rightside__chatmain__messagebox__patial__text
+      = message.content

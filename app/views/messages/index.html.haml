@@ -2,7 +2,8 @@
 -#   %p.pagebox__flashbox
 -#     グループを作成しました。
 .body__wrapper
-  = render "leftside"
+  .leftside__wrappe
+    = render "leftside"
   
   .rightside
     .rightside__groupbox
@@ -13,14 +14,17 @@
           member :momosaki yuta
       = link_to "Edit", "#", class: "rightside__groupbox__btn" 
         
-    .rightside__chatmain    
-      = render "chatmain"
+    .rightside__chatmain   
+      = render @messages
          
-    %form.rightside__formbox
-      .rightside__formbox__textbox
-        %input.rightside__formbox__textbox__text{:tepe => "text", :placeholder => "type a message", :valu => ""}
-          
-        =link_to "#", class: "rightside__formbox__textbox__icon__image" do
-          = fa_icon 'image'
-      = link_to "Send", "#", class: "rightside__formbox__btn"
+    = form_for [@group, @new_message] do |f|
+      .rightside__formbox
+        .rightside__formbox__textbox
+          = f.text_field :content, {class: "rightside__formbox__textbox__text", placeholder: "type a message"}
+          = f.label :image, {class:"rightside__formbox__textbox__image"} do
+            = fa_icon "picture-o"
+            = f.file_field :image, {class:"rightside__formbox__textbox__image--hidden"}
+        = f.submit "Send", {class:"rightside__formbox__btn"}
+       
+     
       
