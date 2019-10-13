@@ -8,12 +8,14 @@
       = link_to "Edit", "#", class: "rightside__groupbox__btn" 
         
     .rightside__chatmain    
-      = render "chatmain"
-         
-    %form.rightside__formbox
-      .rightside__formbox__textbox
-        %input.rightside__formbox__textbox__text{:tepe => "text", :placeholder => "type a message", :valu => ""}
+      -if @messages
+        = render partial:"./messages/message", collection: @messages
+
+    =form_for [@group, @new_message] do |f|     
+      .rightside__formbox
+        .rightside__formbox__textbox
+          %input.rightside__formbox__textbox__text{:tepe => "text", :placeholder => "type a message", :valu => ""}
           
-        =link_to "#", class: "rightside__formbox__textbox__icon__image" do
-          = fa_icon 'image'
-      = link_to "Send", "#", class: "rightside__formbox__btn"
+          =link_to "#", class: "rightside__formbox__textbox__icon__image" do
+            = fa_icon 'image'
+        = link_to "Send", "#", class: "rightside__formbox__btn"
