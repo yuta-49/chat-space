@@ -2,10 +2,12 @@
     .rightside__groupbox
       .rightside__groupbox__namebox
         %p.rightside__groupbox__namebox__name
-          momo
+          = @group.name
         %p.rightside__groupbox__namebox__member
-          member :momosaki yuta
-      = link_to "Edit", "#", class: "rightside__groupbox__btn" 
+          member:
+          - @group.users.each do |user|
+            = user.name
+      = link_to "Edit", edit_group_path(params[:group_id], class: "rightside__groupbox__btn" 
         
     .rightside__chatmain    
       -if @messages
