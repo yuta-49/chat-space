@@ -1,7 +1,7 @@
-$(document).on("turbolinks:load", function(){
+$(function () {
   function addNewCommentToBottom(message){
     let html = `
-      <div class="rightside__chatmain__messagebox">
+     <div class="rightside__chatmain__messagebox" data-message-id="${message.id}"> 
         <div class="rightside__chatmain__messagebox__patial">
           <p class="rightside__chatmain__messagebox__patial__name">
             ${message.user_name}
@@ -18,7 +18,7 @@ $(document).on("turbolinks:load", function(){
     `;
     return html;
   }
-
+  
   function scrollToBottom(){
     let long = $(".rightside__chatmain")[0].scrollHeight;
     $(".rightside__chatmain").animate({scrollTop:long});
@@ -32,12 +32,12 @@ $(document).on("turbolinks:load", function(){
       type: "POST",
       url: url,
       data: formdata,
-      dataType: "json",
+      dataType: "json",  
       processData: false,
       contentType: false
     })    
     .done(function(message){
-      var html = addNewCommentToBottom(message);
+      let html = addNewCommentToBottom(message);
       $(".rightside__chatmain").append(html);
       $("#new_message")[0].reset();
       scrollToBottom();
@@ -49,4 +49,29 @@ $(document).on("turbolinks:load", function(){
       $(".rightside__formbox__btn").removeAttr("disabled");
     })
   })
-})
+  
+  let reloadMessages = function () {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      let last_message_id = $(".message:last").data("message-id");
+
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {last_id: last_message_id}
+      })
+      .done(function(messages) {
+        let insertHTML = "";
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
+          $(".messages").append(insertHTML);
+        })
+        scrollToBottom();
+      })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    }
+  };
+  setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
+});
