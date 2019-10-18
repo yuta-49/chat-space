@@ -1,5 +1,5 @@
-$(document).on("turbolinks:load",function(){
-  
+$(function() {
+
   function showNameList(data){
     let html =`
           <div class="chat-group-user clearfix">

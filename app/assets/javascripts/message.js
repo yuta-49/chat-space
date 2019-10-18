@@ -13,7 +13,7 @@ $(function () {
           <p class="rightside__chatmain__messagebox__patial__message">
           ${message.content}
           </p>
-          <img class="rightside__chatmain__messagebox__patial__image" src="${message.image}" alt="">
+          ${message.image ? `<img class="rightside__chatbox__partial__image" src="${message.image}">` : ""}
       </div>
     `;
     return html;
