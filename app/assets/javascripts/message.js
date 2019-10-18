@@ -50,28 +50,29 @@ $(function () {
     })
   })
   
-  let reloadMessages = function () {
-    if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      let last_message_id = $(".message:last").data("message-id");
+  function reloadMessages() {
+    let last_message_id = $(".rightside__chatmain__messagebox__patial:last").data("message-id");
 
-      $.ajax({
-        url: "api/messages",
-        type: 'get',
-        dataType: 'json',
-        data: {last_id: last_message_id}
-      })
-      .done(function(messages) {
-        let insertHTML = "";
-        messages.forEach(function (message) {
-          insertHTML = buildHTML(message);
-          $(".messages").append(insertHTML);
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      if (messages.length !== 0){
+        messages.forEach(function(message){
+          let html = addNewCommentToBottom(message);
+          $(".rightside__chatmain__messagebox").append(html);
+          scrollToBottom();
         })
-        scrollToBottom();
-      })
-      .fail(function () {
-        alert('自動更新に失敗しました');
-      });
-    }
+      }
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
   };
-  setInterval(reloadMessages, 5000);//5000ミリ秒ごとにreloadMessagesという関数を実行し自動更新を行う。
+  if(document.URL.match("/messages")){
+    setInterval(reloadMessages, 5000);
+  }
 });
