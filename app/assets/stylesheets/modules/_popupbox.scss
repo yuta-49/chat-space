@@ -1,0 +1,19 @@
+.page__wrapper{
+  display:flex;
+  flex-direction: column;
+  height:100vh;
+  width:100vw;
+}
+
+.popupbox{
+  width:100vw;
+  &__message{
+    color:#fff;
+    font-size:20px;
+    text-align:center;
+      background-color:$accentColor;
+    &__alert{
+      background-color:$alertColor;
+    }
+  }
+}

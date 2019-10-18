@@ -1,0 +1,3 @@
+.popupbox
+  - flash.each do |key, value|
+    = content_tag(:p, value, class: "popupbox__message popupbox__message__#{key}")
