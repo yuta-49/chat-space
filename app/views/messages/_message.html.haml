@@ -4,7 +4,7 @@
       = message.user.name
     .rightside__chatmain__messagebox__patial__date
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-  %p.rightside__chamain__messagebox__patial__message
+  .rightside__chamain__messagebox__patial__message
     =message.content if message.content.present?
-  =image_tag message.image,{class:"rightside__chatbox__partial__image"} if message.image.present?
+  =image_tag message.image,{class:"rightside__chatmain__messagebox__partial__image"} if message.image.present?
   

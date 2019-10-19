@@ -13,13 +13,13 @@ $(function () {
           <p class="rightside__chatmain__messagebox__patial__message">
           ${message.content}
           </p>
-          ${message.image ? `<img class="rightside__chatbox__partial__image" src="${message.image}">` : ""}
+          ${message.image ? `<img class="rightside__chatmian__messagebox__patial__image" src="${message.image}">` : ""}
       </div>
     `;
     return html;
   }
   
-  function scrollToBottom(){
+  function scrollToBottom() {
     let long = $(".rightside__chatmain")[0].scrollHeight;
     $(".rightside__chatmain").animate({scrollTop:long});
   }
@@ -51,25 +51,25 @@ $(function () {
   })
   
   function reloadMessages() {
-    let last_message_id = $(".rightside__chatmain__messagebox__patial:last").data("message-id");
-
+    let last_message_id = $(".rightside__chatmain__messagebox:last").data("message-id");
+    console.log(last_message_id)
     $.ajax({
       url: "api/messages",
       type: 'get',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {last_id: last_message_id}
     })
-    .done(function(messages){
+    .done(function(messages) {
       if (messages.length !== 0){
         messages.forEach(function(message){
           let html = addNewCommentToBottom(message);
-          $(".rightside__chatmain__messagebox").append(html);
+          $(".rightside__chatmain").append(html);
           scrollToBottom();
         })
       }
     })
     .fail(function() {
-      alert('自動更新に失敗しました');
+      alert('自動更新できませんでした');
     });
   };
   if(document.URL.match("/messages")){
