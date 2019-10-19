@@ -43,7 +43,7 @@ $(function () {
       scrollToBottom();
     })
     .fail(function () {
-      alert('ファイルの取得に失敗しました。');
+      alert('メッセージを入力してください');
     })
     .always(function() {
       $(".rightside__formbox__btn").removeAttr("disabled");
