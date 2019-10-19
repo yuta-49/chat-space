@@ -73,6 +73,6 @@ $(function () {
     });
   };
   if(document.URL.match("/messages")){
-    setInterval(reloadMessages, 5000);
+    // setInterval(reloadMessages, 5000);
   }
 });

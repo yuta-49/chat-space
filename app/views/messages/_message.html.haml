@@ -6,5 +6,5 @@
       = message.created_at.strftime("%Y/%m/%d %H:%M")
   .rightside__chamain__messagebox__patial__message
     =message.content if message.content.present?
-  =image_tag message.image,{class:"rightside__chatmain__messagebox__partial__image"} if message.image.present?
+  =image_tag message.image.url, class:"rightside__chatmain__messagebox__partial__image" if message.image.present?
   
